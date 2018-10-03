@@ -1,0 +1,126 @@
+<!-- Don't edit the markup! -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    /* 
+TO DO:
+======
+
+1. See the video link below for how each <article> should look
+2. Make all three <article> elements equal width
+3. If any given <article> element gets to smaller than 300px, reshuffle the elements so there are only 2 or 1 <article> elements per row
+
+See https://res.cloudinary.com/bitkoin/video/upload/v1535438914/Untitled.mp4
+*/
+
+    /* Add your CSS here */
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+
+    /* Some pre-filled styles/colours for you. Feel free to modify */
+
+    body,
+    button {
+      font-family: "Karla";
+    }
+
+    button[data-action="start"] {
+      background-color: lightgreen;
+    }
+
+    button[data-action="delete"] {
+      background-color: palevioletred;
+    }
+
+    section {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between
+    }
+
+    article {
+      background-color: #f2f5f8;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ececec;
+      padding: 20px;
+      margin: 10px;
+      min-width: 300px;
+      flex: 1;
+    }
+
+    .order {
+      order: -1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <article>
+      <h2>Item One 😇</h2>
+      <p>Lorem ipsum dolor sit amet</p>
+      <button data-action="start">Move to start</button>
+      <button data-action="delete">Delete</button>
+    </article>
+
+    <article>
+      <h2>Item Two 👿</h2>
+      <p>Lorem ipsum dolor sit amet</p>
+      <button data-action="start">Move to start</button>
+      <button data-action="delete">Delete</button>
+    </article>
+
+    <article>
+      <h2>Item Three 👻</h2>
+      <p>Lorem ipsum dolor sit amet</p>
+      <button data-action="start">Move to start</button>
+      <button data-action="delete">Delete</button>
+    </article>
+  </section>
+
+</body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    const articles = Array.from(document.querySelectorAll('article'));
+
+
+    articles.forEach((article, index) => {
+
+      const moveToStart = article.querySelector('[data-action="start"]')
+      const remove = article.querySelector('[data-action="delete"]')
+      var order = -1;
+
+      moveToStart.addEventListener('click', function () {
+        console.log('clicked on', index);
+        article.classList.add('order')
+      })
+
+      remove.addEventListener('click', function () {
+        console.log('clicked', index);
+        article.style.display = 'none';
+      })
+
+    })
+
+  });
+</script>
+
+</html>

@@ -1,0 +1,18 @@
+{
+	"name": "Final-year-HTML-design",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "npm-run-all --parallel devserver watch",
+		"devserver": "lite-server",
+		"watch": "node-sass scss/style.scss dist/style.css --w",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Ipaye Alameen <Akinkunmi007@gmail.com>",
+	"license": "ISC",
+	"dependencies": {
+		"node-sass": "^4.9.3"
+	}
+}
